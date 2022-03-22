@@ -14,9 +14,9 @@ public class Persona {
 
     private String nombre;
     private String nif;
-    private Direccion direccion;
+    private String direccion;
 
-    public Persona(String nombre, String nif, Direccion direccion) {
+    public Persona(String nombre, String nif, String direccion) {
         this.nombre = nombre;
         this.nif = nif;
         this.direccion = direccion;
@@ -41,12 +41,17 @@ public class Persona {
         this.nif = nif;
     }
 
-    public Direccion getDireccion() {
+    public String getDireccion() {
         return direccion;
     }
 
-    public void setDireccion(Direccion direccion) {
+    public void setDireccion(String direccion) {
         this.direccion = direccion;
+    }
+
+    @Override
+    public String toString() {
+        return "Persona{" + "nombre=" + nombre + ", nif=" + nif + ", direccion=" + direccion + '}';
     }
 
   

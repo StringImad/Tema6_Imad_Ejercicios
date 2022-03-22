@@ -51,6 +51,11 @@ public abstract class Cuenta {
     abstract void actualiarSaldo();
 
     abstract void retirar(double dinero);
+
+    @Override
+    public String toString() {
+        return "Cuenta{" + "numeroCuenta=" + numeroCuenta + ", saldo=" + saldo + ", cliente=" + cliente + '}';
+    }
   
 }
 
