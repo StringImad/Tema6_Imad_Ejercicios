@@ -14,26 +14,24 @@ import java.util.Arrays;
  */
 public class BusquedaPolindroma {
 
-    private static boolean buscarPolindroma(String palabra, int posicion, String polindroma) {
-        System.out.println("Primera letra: " + palabra.charAt(palabra.length() - 1));
-        System.out.println("Ultima letra: " + palabra.charAt(posicion));
-
-        System.out.println("Posicion: " + posicion);
-        System.out.println("Posicion del otro lado: " + (palabra.length() - 1));
-        
-        if (palabra.charAt(posicion) == palabra.charAt(palabra.length() - 1)) {
+    private static boolean buscarPolindroma(String palabra, int posicion,int contador, String polindroma) {
+        System.out.println("Primera letra: " + palabra.charAt(posicion)+" posicion: "+posicion);
+        System.out.println("Ultima letra: " + palabra.charAt(palabra.length() - contador)+" posicion: "+ (palabra.length() - contador));      
+        if (palabra.charAt(posicion) == palabra.charAt(palabra.length() - contador)||contador==posicion) {
             polindroma += palabra.charAt(posicion) + "";
+            System.out.println("Polindroma: "+polindroma);
         }
-        System.out.println("Polindroma: " + polindroma);
         if (palabra.equals(polindroma)) {
-            return false;
+            System.out.println("Polindroma encontrada");
+            return true;
         } else {
-            return buscarPolindroma(palabra, (posicion + 1), polindroma);
+            System.out.println("palabra: "+palabra+" posicion: "+posicion+" polindroma: "+polindroma);
+            return buscarPolindroma(palabra, (posicion + 1),(contador+1), polindroma);
         }
     }
 
     public static void main(String[] args) {
         System.out.println("Es polindorma ANA?");
-        buscarPolindroma("ANA", 0, "");
+        buscarPolindroma("holaaloh", 0,1, "");
     }
 }
